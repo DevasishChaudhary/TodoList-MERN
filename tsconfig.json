@@ -1,0 +1,27 @@
+//1st to know
+// Replace all these default created in this
+
+//The core need to change is 
+//Building Node.js + Express backend?
+//✅ module   → "commonjs"
+//✅ target   → "ES2020"
+//✅ rootDir  → "./src"
+//✅ outDir   → "./dist"
+
+//That's all you need to know right now.
+//Everything else → leave as default.
+
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "commonjs",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
+}
+
