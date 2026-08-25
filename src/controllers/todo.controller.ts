@@ -53,7 +53,8 @@ export const updateTodo= async(req: Request, res: Response): Promise<void>=>{
 
         res.status(200).json({
             success: true,
-            message: "Todo deleted successfully",
+            message: "Todo updated successfully",
+            data: todo
         });
     }catch (error: any){
         res.status(400).json({
@@ -69,7 +70,7 @@ export const deleteTodo= async (req: Request, res: Response): Promise<void>=>{
         const userId= req.user!.userId; //get logged in user's id
         const {id} =req.params; //get todo id from URL
 
-        const todo= await todoService.deleteTodo({id, userId}); //call service
+         await todoService.deleteTodo({id, userId}); //call service
 
         res.status(200).json({
             success: true,
@@ -81,3 +82,6 @@ export const deleteTodo= async (req: Request, res: Response): Promise<void>=>{
         });
     }
 };
+
+
+
