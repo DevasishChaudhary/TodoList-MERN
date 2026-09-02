@@ -34,11 +34,10 @@ const UserSchema= new Schema<IUser>(
     }
 );
 
-// ─────────────────────────────────────────────────────
+
 // PRE-SAVE HOOK
 // runs automatically BEFORE every save() call
 // if password changed → hash it before storing
-// ─────────────────────────────────────────────────────
 UserSchema.pre("save", async function () {
   if (!this.isModified("password")) 
     return ; // skip if password not changed
@@ -49,15 +48,12 @@ UserSchema.pre("save", async function () {
 });
 
 
-
-// ─────────────────────────────────────────────────────
 // CUSTOM METHOD — comparePassword
 // attached to every User document
 // used in login to compare entered password with hashed password
 // usage: await user.comparePassword("plaintext123")
-// ─────────────────────────────────────────────────────
 UserSchema.methods.comparePassword = async function (
-  candidatePassword: string  // password entered by user during login
+candidatePassword: string  // password entered by user during login
 ): Promise<boolean> {
   return bcrypt.compare(candidatePassword, this.password); // returns true or false
 };

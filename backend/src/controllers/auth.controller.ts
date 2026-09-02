@@ -1,13 +1,13 @@
 import { Request, Response } from "express";
-import {authService} from "../services/auth.service"; //service (we create next)
-
+// import {authService} from "../services/auth.service"; //service (we create next)  // for using class in services
+import {Ssignup, Slogin} from "../services/auth.service"; //service (we create next)
 //SIGNUP CONTROLLER
 export const signup = async (req: Request, res: Response): Promise<void>=>{
     try{
         const {name, email, password} = req.body; //get datat from request body
 
-        const result= await authService.signup({name, email, password}); // call servie
-
+        // const result= await authService.signup({name, email, password}); // call service   //when services is written in class
+        const result= await Ssignup({name, email, password}); // call service //when services in written in function
         res.status(201).json({
             success: true,
             message: "ACcount created Successfully",
@@ -26,7 +26,8 @@ export const login= async (req: Request, res: Response): Promise<void>=>{
     try{
         const {email, password}= req.body; //get data from request body
 
-        const result= await authService.login({email, password}); //call service
+        // const result= await authService.login({email, password}); //call service
+        const result= await Slogin({email, password}); //call service
 
         res.status(200).json({
             success: true,

@@ -4,7 +4,7 @@ export interface ICreateTodoBody{
 }
 
 // shape of data we expect when user updates a todo
-export interface IUpdateToBody{
+export interface IUpdateTodoBody{
     title?: string; // optional, user might only update one field
     completed?: boolean; // optional, user might only update one field
 }
