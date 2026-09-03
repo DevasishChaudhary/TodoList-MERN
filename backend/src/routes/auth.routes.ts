@@ -5,7 +5,7 @@ const router = Router(); //create a mini roueter
 
 //map URLs to controller functions
 router.post("/signup", signup); //POST /api/auth/signup
-router.post("/logoin", login); //POST /api/auth/login
+router.post("/login", login); //POST /api/auth/login
 
 export default router;
 
